@@ -13,8 +13,14 @@ code {
     monospace;
 }
 
-.mt-4{
+h1,h2,h3{
   color:white;
+  font-weight: bold;
+}
+
+p{
+  color:white;
+  font-family: Exo 2;
 }
 
 .filmes{
@@ -24,9 +30,11 @@ code {
 }
 
 .mt-4{
+  color:white;
   font-family: Poppins;
   font-weight: 800;
   line-height: 36px;
   letter-spacing: 0.02em;
   text-align: left;
+  
 }
