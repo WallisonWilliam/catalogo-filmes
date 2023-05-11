@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-<<<<<<< HEAD
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Container, Row, Col, Card, Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MovieDetailsPage from "./MovieDetailsPage";
-=======
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Container, Row, Col, Card, Carousel } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
->>>>>>> 5db9899157c878afa919a795064e7bac7120dd4b
 
 const MovieCard = ({ movie }) => {
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
@@ -17,7 +11,6 @@ const MovieCard = ({ movie }) => {
   return (
     <Col xs={6} sm={4} md={3} lg={2}>
       <Card className="mb-4">
-<<<<<<< HEAD
         <Link to={`/movie/${movie.id}`}>
           <Card.Img variant="top" src={imageUrl} />
         </Link>
@@ -25,17 +18,6 @@ const MovieCard = ({ movie }) => {
     </Col>
   );
 };
-=======
-        <Card.Img variant="top" src={imageUrl} />
-        {/* <Card.Body>
-        <Card.Title>{movie.title}</Card.Title>
-        <Card.Text>{movie.vote_average} / 10</Card.Text>
-      </Card.Body> */}
-      </Card>
-    </Col>
-  );
-}; // fim do Card de filme
->>>>>>> 5db9899157c878afa919a795064e7bac7120dd4b
 
 const App = () => {
   const [featuredMovie, setFeaturedMovie] = useState(null);
@@ -72,7 +54,6 @@ const App = () => {
     : "";
 
   return (
-<<<<<<< HEAD
     <Router>
       <Container>
         <Routes>
@@ -81,35 +62,6 @@ const App = () => {
         </Routes>
       </Container>
     </Router>
-=======
-    <Container>
-      <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={featuredMovieImageUrl}
-            alt={featuredMovie?.title}
-          />
-          <Carousel.Caption>
-            <h3>{featuredMovie?.title}</h3>
-            <p>{featuredMovie?.overview}</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-      <h2 className="mt-4">Top Hits Movies</h2>
-      <Row className="Filmes">
-        {topRatedMovies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </Row>
-      <h2 className="mt-4">Em cartaz</h2>
-      <Row>
-        {nowPlayingMovies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </Row>
-    </Container>
->>>>>>> 5db9899157c878afa919a795064e7bac7120dd4b
   );
 
   function Home() {
