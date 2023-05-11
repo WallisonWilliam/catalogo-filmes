@@ -27,7 +27,7 @@ app.get('/movies/:section', async (req, res) => {
       url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${tmdbApiKey}`;
       break;
     case 'now-playing':
-      url = `https://api.themovi    edb.org/3/movie/now_playing?api_key=${tmdbApiKey}`;
+      url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${tmdbApiKey}`;
       break;
     default:
       res.status(400).send('Seção inválida.');
