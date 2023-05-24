@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap');
+
+.row{
+  margin-right: 0;  
+  margin-left: 0;
+  margin-bottom:1rem;
+}
+
+.container h1{
+  font-family: 'Exo 2', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+  text-align: left;
+
+}
+
+.container h2{
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+}
+
+.col-auto{
+  margin-bottom:0.5rem
+}
+
+
+
+.fa fa-star{
+  background: linear-gradient(53.6deg, #FC6076 3.85%, #FF9A44 115.28%);
+}
+
+@media (max-width: 600px){
+  
+  #movie-image img{
+    width: 100%;
+    padding-right: var(--bs-gutter-x,-1rem);
+    padding-left: var(--bs-gutter-x,-rem);
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+}
+
+
+  
