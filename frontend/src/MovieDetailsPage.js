@@ -3,6 +3,13 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
 import "./MovieDetailsPage.css";
+import ImageL from "./imagens/L.png";
+import Image10 from "./imagens/10.png";
+import Image12 from "./imagens/12.png";
+import Image14 from "./imagens/14.png";
+import Image16 from "./imagens/16.png";
+import Image18 from "./imagens/18.png";
+
 
 function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -18,10 +25,14 @@ function MovieDetailsPage() {
             params: {
               api_key: apiKey,
               language: "pt-BR",
-              append_to_response: "watch/providers,images,credits",
+              append_to_response: "release_dates,watch/providers,images,credits",
             },
           }
         );
+        const releaseDates = response.data.release_dates.results;
+        const brReleaseDates = releaseDates.find(country => country.iso_3166_1 === 'BR');
+        const certification = brReleaseDates?.release_dates[0]?.certification;
+        response.data.certification = certification;
         setMovieDetails(response.data);
       } catch (error) {
         console.error("Erro ao buscar detalhes do filme:", error);
@@ -29,6 +40,7 @@ function MovieDetailsPage() {
     };
     fetchMovieDetails();
   }, [movieId]);
+  
 
   if (!movieDetails) {
     return <div>Carregando...</div>;
@@ -61,20 +73,46 @@ function MovieDetailsPage() {
     return `${hours}h ${remainingMinutes}min`;
   };
 
+  const getCertificationImage = (certification) => {
+    switch (certification) {
+      case 'L':
+        return ImageL;
+      case '10':
+        return Image10;
+      case '12':
+        return Image12;
+      case '14':
+        return Image14;
+      case '16':
+        return Image16;
+      case '18':
+        return Image18;
+      // Adicione outros cases conforme necessário para mapear os valores de certification para as imagens correspondentes
+      default:
+        return null; // Retorne uma imagem padrão ou null caso o valor de certification não corresponda a uma imagem específica
+    }
+  };
+
   return (
-    <Container>
-      <div className="movie-image">
-        {movieDetails.poster_path && (
-          <img
-            src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
-            alt={`Pôster de ${movieDetails.title}`}
-          />
+    
+    <Container fluid>
+    <div className="movie-image" style={{ width: "100%" }}>
+      {movieDetails.poster_path && (
+        <img
+          src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`}
+          alt={`Pôster de ${movieDetails.title}`}
+          style={{ width: "100%" }}
+        />
         )}
       </div>
       <div className="movie-details">
         <h1>{movieDetails.title}</h1>
         <p className="details">
-          {new Date(movieDetails.release_date).getFullYear()} {" "}
+          {new Date(movieDetails.release_date).getFullYear()}{" "}
+          <img
+          src={getCertificationImage(movieDetails.certification)}
+          alt={movieDetails.certification}
+          />{" "}
           {formatRuntime(movieDetails.runtime)}
         </p>
 
@@ -85,30 +123,37 @@ function MovieDetailsPage() {
         <p>{movieDetails.overview}</p>
         <h2>Elenco</h2>
         <p>{castList}</p>
-      </div>
+      
       {streamingProviders.length > 0 && (
         <div>
           <h2>Disponível em:</h2>
           <Row>
             {streamingProviders.map((provider) => (
               <Col key={provider.provider_id} xs="auto">
+                
                 <a
                   href={generateJustWatchLink(movieDetails.title)}
                   target="_blank"
                   rel="noreferrer"
                 >
+                  
                   <img
                     src={`https://image.tmdb.org/t/p/w45${provider.logo_path}`}
                     alt={`Logo do ${provider.provider_name}`}
                     style={{ borderRadius: "8px" }}
                   />
+                  
                 </a>
+                
               </Col>
+              
             ))}
           </Row>
         </div>
       )}
+      </div>
     </Container>
+    
   );
 }
 

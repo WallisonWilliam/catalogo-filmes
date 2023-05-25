@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap');
 
+
+
+.movie-details{
+  min-height: 100vh
+}
+
 .row{
   margin-right: 0;  
   margin-left: 0;
   margin-bottom:1rem;
+  
 }
 
 .container h1{
@@ -16,20 +23,36 @@
 
 }
 
+
 .container h2{
   font-family: 'Exo 2', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 17px;
   letter-spacing: 0.02em;
   color: #FFFFFF;
+  margin-top:2rem;
 }
 
 .col-auto{
   margin-bottom:0.5rem
 }
 
+.details{
+  font-size:20px;
+}
+
+p{
+  margin-bottom:0;
+}
+
+.details img{
+  width:2rem;
+  padding-bottom:0.4rem;
+  margin-left:0.8rem;
+  margin-right:0.8rem;
+}
 
 
 .fa fa-star{
@@ -38,12 +61,21 @@
 
 @media (max-width: 600px){
   
-  #movie-image img{
+  .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     width: 100%;
-    padding-right: var(--bs-gutter-x,-1rem);
-    padding-left: var(--bs-gutter-x,-rem);
+    padding-right: 0;
+    padding-left: 0;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  .movie-details{
+      width: 100%;
+      padding-right: var(--bs-gutter-x,.75rem);
+      padding-left: var(--bs-gutter-x,.75rem);
+      margin-right: auto;
+      margin-left: auto;
+    
   }
   
 }

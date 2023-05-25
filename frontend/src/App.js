@@ -3,14 +3,14 @@ import axios from "axios";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Container, Row, Col, Card, Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MovieDetailsPage from "./MovieDetailsPage";
+import MovieDetailsPage from "./MovieDetailsPage.js";
 
 const MovieCard = ({ movie }) => {
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
   return (
     <Col xs={6} sm={4} md={3} lg={2}>
-      <Card className="mb-4">
+      <Card className="mb-4 rounded" style={{ border: "none" }}>
         <Link to={`/movie/${movie.id}`}>
           <Card.Img variant="top" src={imageUrl} />
         </Link>
@@ -80,13 +80,13 @@ const App = () => {
           </Carousel.Item>
         </Carousel>
         <h2 className="mt-4">Top Hits Movies</h2>
-        <Row className="Filmes">
+        <Row className="Filmes d-flex flex-wrap">
           {topRatedMovies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
         </Row>
         <h2 className="mt-4">Em cartaz</h2>
-        <Row>
+        <Row className="d-flex flex-wrap">
           {nowPlayingMovies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
