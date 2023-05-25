@@ -176,7 +176,7 @@ function StarRating({ rating }) {
   const starsArray = [...fullStarsArray, ...halfStarsArray, ...emptyStarsArray];
 
   // Formata a nota para uma casa decimal
-  const formattedRating = (rating * 1.94).toFixed(1);
+  const formattedRating = (rating * 2).toFixed(1);
 
   // Retorna as estrelas como um componente
   return (
