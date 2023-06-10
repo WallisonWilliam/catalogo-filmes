@@ -9,7 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 import MovieDetailsPage from "./MovieDetailsPage.js";
 import MovieCard from "./components/MovieCard";
 import StarRating from "./components/StarRating"
-import SearchBar from "./components/SearchBar";
+import Navbar from "./components/Navbar";
+import Search from './components/Search';
 import ImageL from "./imagens/L.png";
 import Image10 from "./imagens/10.png";
 import Image12 from "./imagens/12.png";
@@ -21,12 +22,6 @@ const App = () => {
   const [featuredMovie, setFeaturedMovie] = useState(null);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
-
-  const handleSearchChange = (event) => {
-    setSearchValue(event.target.value);
-  };
-
 
   useEffect(() => {
     const fetchFeaturedMovie = async () => {
@@ -121,7 +116,7 @@ const App = () => {
 
     return (
       <>
-      <SearchBar value={searchValue} onChange={handleSearchChange} />
+      
         <div style={{ position: "relative" }}>
           <img
             src={featuredMovieImageUrl}
@@ -196,10 +191,13 @@ const App = () => {
 
   return (
     <Router>
+       <Navbar />
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movie/:movieId" element={<MovieDetailsPage />} />
+          <Route path="/search" element={<Search />} />
+
         </Routes>
       </Container>
     </Router>
