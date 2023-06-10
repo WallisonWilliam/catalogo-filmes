@@ -2,14 +2,12 @@
 
 
 
-.movie-details{
-  min-height: 100vh
-}
+
 
 .row{
   margin-right: 0;  
   margin-left: 0;
-  margin-bottom:1rem;
+  margin-bottom:1rem; 
   
 }
 
@@ -33,6 +31,7 @@
   letter-spacing: 0.02em;
   color: #FFFFFF;
   margin-top:2rem;
+  
 }
 
 .col-auto{

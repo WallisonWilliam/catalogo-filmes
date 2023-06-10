@@ -23,12 +23,6 @@ p{
   font-family: 'Exo 2', sans-serif;
 }
 
-.filmes{
-  grid-auto-flow: column;
-  display: inline-grid;
-
-}
-
 .mt-4{
   color:white;
   font-family: Poppins;
@@ -36,5 +30,7 @@ p{
   line-height: 36px;
   letter-spacing: 0.02em;
   text-align: left;
+  margin-left:0.6rem;
+  margin-bottom:2rem;
   
 }
