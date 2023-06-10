@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import MovieCard from "C:/Users/Wallison/Documents/GitHub/catalogo-filmes/frontend/src/components/MovieCard.js";
 
-const searchURL = process.env.REACT_APP_SEARCH;
-const apiKey = process.env.REACT_APP_TMDB_API_KEY;
-
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 const Search = () => {
   const [searchParams] = useSearchParams();
@@ -12,13 +10,22 @@ const Search = () => {
   const query = searchParams.get("q");
 
   const getSearchedMovies = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    setMovies(data.results);
+    try {
+      const res = await fetch(url);
+
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await res.json();
+      setMovies(data);
+    } catch (error) {
+      console.error('There has been a problem with your fetch operation:', error);
+    }
   };
 
   useEffect(() => {
-    const searchWithQueryURL = `${searchURL}?${apiKey}&query=${query}`;
+    const searchWithQueryURL = `${backendURL}/search?term=${query}`;
     getSearchedMovies(searchWithQueryURL);
   }, [query]);
 

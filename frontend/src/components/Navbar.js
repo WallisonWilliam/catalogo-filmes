@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiCameraMovie, BiSearchAlt2 } from "react-icons/bi";
 
-
 const Navbar = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
@@ -12,7 +11,7 @@ const Navbar = () => {
 
     if (!search) return;
 
-    navigate(`/search?q=${search}`, { replace: true });
+    navigate(`/search?term=${search}`, { replace: true });
     setSearch("");
   };
 
