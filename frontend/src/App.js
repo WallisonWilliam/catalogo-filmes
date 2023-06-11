@@ -229,7 +229,7 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <Container fluid>
+      <Container fluid style={{ minHeight: "100vh" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movie/:movieId" element={<MovieDetailsPage />} />
