@@ -1,0 +1,59 @@
+#navbar {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+#navbar h2 a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#navbar form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#navbar input {
+  padding: 0.2rem 0.8rem;
+  border-radius: 4px;
+  border: none;
+  background: #3E3E3E;
+  border: 1px solid #565656;
+  border-radius: 20px;
+  width:100%
+}
+
+#navbar form button {
+  background-color: #f7d354;
+  border: 2px solid #f7d354;
+  border-radius: 4px;
+  color: #000;
+  padding: 0.3rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Estilos existentes... */
+
+#navbar form.mobile-search input {
+  display: block;
+}
+
+@media (max-width: 768px) { 
+  #navbar {
+      display: none;
+  }
+}
+
+/* Group 339 */
+@media (min-width: 1024px) { 
+  #navbar input{
+      width:800px;
+  }
+}

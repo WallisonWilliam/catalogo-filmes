@@ -17,6 +17,7 @@ import Image12 from "./imagens/12.png";
 import Image14 from "./imagens/14.png";
 import Image16 from "./imagens/16.png";
 import Image18 from "./imagens/18.png";
+import Footer from './components/Footer';
 
 const App = () => {
   const [featuredMovie, setFeaturedMovie] = useState(null);
@@ -53,6 +54,7 @@ const App = () => {
     : "";
 
   function Home() {
+    
     var settings = {
       dots: false,
       infinite: true,
@@ -199,6 +201,7 @@ const App = () => {
           <Route path="/search" element={<Search />} />
 
         </Routes>
+        <Footer /> {/* Adicione o Footer aqui */}
       </Container>
     </Router>
   );

@@ -1,32 +1,29 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import MovieCard from "C:/Users/Wallison/Documents/GitHub/catalogo-filmes/frontend/src/components/MovieCard.js";
+import MovieCard from "../components/MovieCard.js";
+import './search.css';
 
-const backendURL = process.env.REACT_APP_BACKEND_URL;
+
 
 const Search = () => {
   const [searchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const query = searchParams.get("q");
 
-  const getSearchedMovies = async (url) => {
+  const getSearchedMovies = async (query) => {
     try {
-      const res = await fetch(url);
-
-      if (!res.ok) {
-        throw new Error('Network response was not ok');
-      }
-
+      const res = await fetch(`http://localhost:3001/search?q=${query}`);
       const data = await res.json();
       setMovies(data);
+      console.log(data); // Verifique se a resposta está sendo recebida corretamente.
     } catch (error) {
-      console.error('There has been a problem with your fetch operation:', error);
+      console.error("Error fetching data: ", error);
     }
   };
+  ;
 
   useEffect(() => {
-    const searchWithQueryURL = `${backendURL}/search?term=${query}`;
-    getSearchedMovies(searchWithQueryURL);
+    getSearchedMovies(query);
   }, [query]);
 
   return (
@@ -35,11 +32,13 @@ const Search = () => {
         Resultados para: <span className="query-text">{query}</span>
       </h2>
       <div className="movies-container">
+        {console.log(movies)} {/* Verifique se o estado dos filmes está sendo atualizado corretamente. */}
         {movies.length > 0 &&
           movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </div>
     </div>
   );
+  
 };
 
 export default Search;

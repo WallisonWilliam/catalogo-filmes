@@ -59,15 +59,14 @@ app.get('/movies/:movieId', async (req, res) => {
 
 // Pesquisa de filmes com base em um termo fornecido pelo usuário
 app.get('/search', async (req, res) => {
-  const searchTerm = req.query.term; // Obtém o termo de pesquisa da query string
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${tmdbApiKey}&query=${encodeURIComponent(searchTerm)}`;
+  const query = req.query.q;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${tmdbApiKey}&query=${query}`;
 
   try {
     const response = await axios.get(url);
-    const movies = response.data.results;
-    res.send(movies);
+    res.send(response.data.results);
   } catch (error) {
-    res.status(500).send('Erro ao realizar a pesquisa de filmes.');
+    res.status(500).send('Erro ao obter resultados da pesquisa.');
   }
 });
 

@@ -1,0 +1,59 @@
+/* Estilos para a página inicial */
+
+/* Imagem em destaque */
+.featured-image {
+    position: relative;
+  }
+  
+  .featured-image img {
+    width: 100%;
+  }
+  
+  .featured-image .details {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #FFF;
+  }
+  
+  /* Títulos */
+  h1 {
+    color: #FFF;
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
+  
+  /* Slider */
+  .slick-slider {
+    margin-bottom: 20px;
+  }
+  
+  /* Imagens de classificação */
+  .certification-image {
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+  }
+  
+  /* Estilos para a página de busca */
+  
+  .container {
+    margin-top: 20px;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .query-text {
+    font-weight: bold;
+  }
+  
+  .movies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+  

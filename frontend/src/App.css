@@ -40,8 +40,11 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   #myCarousel .slick-next {
     display: none;
+  }
+  .movie-details{
+    padding-bottom: 70px
   }
 }
