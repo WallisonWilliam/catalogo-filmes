@@ -8,16 +8,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieDetailsPage from "./MovieDetailsPage.js";
 import MovieCard from "./components/MovieCard";
-import StarRating from "./components/StarRating"
+import StarRating from "./components/StarRating";
 import Navbar from "./components/Navbar";
-import Search from './components/Search';
+import Search from "./components/Search";
 import ImageL from "./imagens/L.png";
 import Image10 from "./imagens/10.png";
 import Image12 from "./imagens/12.png";
 import Image14 from "./imagens/14.png";
 import Image16 from "./imagens/16.png";
 import Image18 from "./imagens/18.png";
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
+import moviesearch from "./imagens/moviesearch.png";
 
 const App = () => {
   const [featuredMovie, setFeaturedMovie] = useState(null);
@@ -54,12 +55,11 @@ const App = () => {
     : "";
 
   function Home() {
-    
     var settings = {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 5,
+      slidesToShow: 9,
       slidesToScroll: 5,
       arrows: window.innerWidth > 480, // Mostra setas somente se a largura da janela for maior que 480px
       responsive: [
@@ -89,6 +89,7 @@ const App = () => {
         },
       ],
     };
+    
 
     const getCertificationImage = (certification) => {
       switch (certification) {
@@ -118,13 +119,49 @@ const App = () => {
 
     return (
       <>
-      
+        <div className="web">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginRight: "1rem",
+            }}
+          >
+            <Link to="/" className="web-only-button">
+              <img
+                src={moviesearch}
+                alt="Logo do site"
+                style={{ width: "20rem", padding: "1rem 0px" }}
+              />
+            </Link>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginLeft: "auto",
+              marginRight: "1rem",
+            }}
+          >
+            <Link to="/search" className="web-only-button">
+              Movies
+            </Link>
+          </div>
+        </div>
+
         <div style={{ position: "relative" }}>
           <img
+            id="imagem-principal"
             src={featuredMovieImageUrl}
             alt={featuredMovie?.title}
-            style={{ width: "100%" }}
+            style={{
+              width: "100%",
+              objectFit: "cover",
+              objectPosition: "50% 20%",
+            }}
           />
+
           <div style={{ position: "absolute", bottom: "20px", left: "20px" }}>
             <h1 style={{ color: "#FFF" }}>{featuredMovie?.title}</h1>
             <p className="details">
@@ -135,9 +172,7 @@ const App = () => {
               />{" "}
               {/*formatRuntime(featuredMovie.runtime)*/}
             </p>
-            <p>
-              {/*<StarRating rating={featuredMovie?.vote_average / 2} />*/}
-            </p>
+            <p>{/*<StarRating rating={featuredMovie?.vote_average / 2} />*/}</p>
 
             <Link to={`/movie/${featuredMovie?.id}`}>
               <svg
@@ -193,20 +228,17 @@ const App = () => {
 
   return (
     <Router>
-       <Navbar />
-      <Container>
+      <Navbar />
+      <Container fluid>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movie/:movieId" element={<MovieDetailsPage />} />
           <Route path="/search" element={<Search />} />
-
         </Routes>
         <Footer /> {/* Adicione o Footer aqui */}
       </Container>
     </Router>
   );
 };
-
-
 
 export default App;

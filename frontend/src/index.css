@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:linear-gradient(183.87deg, #434343 -13.77%, #000000 114.95%);
+  overflow-x: hidden;
 }
 
 code {

@@ -31,7 +31,8 @@ const footerStyle = {
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
-  backgroundColor: '#fff'
+  background: 'rgba(255, 255, 255, 0.1)',
+  backdropFilter: 'blur(7.5px)',
 };
 
 export default Footer;

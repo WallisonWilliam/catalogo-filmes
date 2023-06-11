@@ -60,7 +60,8 @@ app.get('/movies/:movieId', async (req, res) => {
 // Pesquisa de filmes com base em um termo fornecido pelo usuário
 app.get('/search', async (req, res) => {
   const query = req.query.q;
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${tmdbApiKey}&query=${query}`;
+  const page = req.query.page || 1;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${tmdbApiKey}&query=${query}&page=${page}`;
 
   try {
     const response = await axios.get(url);
@@ -70,10 +71,12 @@ app.get('/search', async (req, res) => {
   }
 });
 
-// obter filmes de um gênero específico
+
+
 app.get('/genres/:genreId/movies', async (req, res) => {
   const genreId = req.params.genreId;
-  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApiKey}&with_genres=${genreId}`;
+  const page = req.query.page || 1;  // Adicione isso
+  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApiKey}&with_genres=${genreId}&page=${page}`;
 
   try {
     const response = await axios.get(url);
@@ -83,6 +86,19 @@ app.get('/genres/:genreId/movies', async (req, res) => {
     res.status(500).send('Erro ao obter filmes do gênero específico.');
   }
 });
+
+// obter lista de gêneros
+app.get('/genres', async (req, res) => {
+  const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${tmdbApiKey}`;
+
+  try {
+    const response = await axios.get(url);
+    res.send(response.data.genres);
+  } catch (error) {
+    res.status(500).send('Erro ao obter lista de gêneros.');
+  }
+});
+
 
 
 

@@ -30,6 +30,15 @@
   color: #61dafb;
 }
 
+header{
+  display:flex;  
+}
+
+header h2{
+  display:flex
+}
+
+
 
 @keyframes App-logo-spin {
   from {
@@ -47,4 +56,10 @@
   .movie-details{
     padding-bottom: 70px
   }
+
+  .logo{
+    display:none;
+  }
+
+  
 }
