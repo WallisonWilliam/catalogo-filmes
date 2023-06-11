@@ -131,7 +131,7 @@ const App = () => {
               <img
                 src={moviesearch}
                 alt="Logo do site"
-                style={{ width: "20rem", padding: "1rem 0px" }}
+                style={{ width: "10rem", padding: "1rem 0px" }}
               />
             </Link>
           </div>
