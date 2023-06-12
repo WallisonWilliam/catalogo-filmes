@@ -55,7 +55,7 @@ const Search = () => {
       setAllMovies([]);
       setPage(1);
       setLastQuery(query);
-    } 
+    }
   }, [query, genre]);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
@@ -45,14 +45,13 @@ const App = () => {
     ? `https://image.tmdb.org/t/p/original${featuredMovie.backdrop_path}`
     : "";
 
-
-
   return (
     <Router>
       <Navbar />
       <Container fluid style={{ minHeight: "100vh" }}>
         <Routes>
-          <Route path="/" element={<Home featuredMovie={featuredMovie} featuredMovieImageUrl={featuredMovieImageUrl} topRatedMovies={topRatedMovies} nowPlayingMovies={nowPlayingMovies} />} />
+        <Route path="/" element={<Home featuredMovie={featuredMovie} featuredMovieImageUrl={featuredMovieImageUrl} topRatedMovies={topRatedMovies} nowPlayingMovies={nowPlayingMovies} />} />
+          />
           <Route path="/movie/:movieId" element={<MovieDetailsPage />} />
           <Route path="/search" element={<Search />} />
         </Routes>

@@ -6,9 +6,9 @@ const GenreSelector = ({ setGenre }) => {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const res = await fetch('http://localhost:3001/genres');
+        const res = await fetch("http://localhost:3001/genres");
         const data = await res.json();
-        console.log(data)
+        console.log(data);
         setGenres(data.genres);
       } catch (error) {
         console.error("Error fetching genres: ", error);
@@ -22,12 +22,18 @@ const GenreSelector = ({ setGenre }) => {
   };
 
   return (
-    <div className="genre-selector" style={{marginLeft: "10px", marginBottom: "10px",}}>
+    <div
+      className="genre-selector"
+      style={{ marginLeft: "10px", marginBottom: "10px" }}
+    >
       <select onChange={handleGenreChange}>
         <option value="">Todos os gêneros</option>
-        {genres && genres.map((genre) => (
-          <option key={genre.id} value={genre.id}>{genre.name}</option>
-        ))}
+        {genres &&
+          genres.map((genre) => (
+            <option key={genre.id} value={genre.id}>
+              {genre.name}
+            </option>
+          ))}
       </select>
     </div>
   );
