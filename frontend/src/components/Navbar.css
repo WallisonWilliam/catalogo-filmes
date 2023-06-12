@@ -45,6 +45,17 @@
   display: block;
 }
 
+#navbar #search-open-button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0;
+  margin-left: 10px;
+}
+
+
 @media (max-width: 768px) { 
   #navbar {
       display: none;

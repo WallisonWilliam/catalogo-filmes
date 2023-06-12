@@ -22,7 +22,7 @@ const GenreSelector = ({ setGenre }) => {
   };
 
   return (
-    <div className="genre-selector">
+    <div className="genre-selector" style={{marginLeft: "10px", marginBottom: "10px",}}>
       <select onChange={handleGenreChange}>
         <option value="">Todos os gêneros</option>
         {genres && genres.map((genre) => (

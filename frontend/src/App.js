@@ -119,14 +119,8 @@ const App = () => {
 
     return (
       <>
-        <div className="web">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              marginRight: "1rem",
-            }}
-          >
+        <div className="web">            
+          <div style={{ display: "flex", alignItems: "center",marginRight: "1rem",}}>
             <Link to="/" className="web-only-button">
               <img
                 src={moviesearch}

@@ -9,7 +9,7 @@ const MovieCard = ({ movie }) => {
   return (
     <div style={{margin: "0 10px",borderRadius: "10px",overflow: "hidden",height: "100",}}>
       <Link to={`/movie/${movie.id}`}>
-        <img
+        <img         
           src={imageUrl}
           alt={movie.title}
           style={{ width: "100%", height: "auto" }}
